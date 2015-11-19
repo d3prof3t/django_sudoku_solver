@@ -1,0 +1,5 @@
+[run]
+include = sudoku_solver/*
+omit = *migrations*, *tests*
+plugins =
+    django_coverage_plugin
