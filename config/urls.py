@@ -9,7 +9,7 @@ from django.views.generic import TemplateView
 from django.views import defaults as default_views
 
 urlpatterns = [
-    url(r'^$', TemplateView.as_view(template_name='pages/sudoku.html'), name="home"),
+    url(r'^$', TemplateView.as_view(template_name='pages/sudoku_input.html'), name="home"),
     url(r'^about/$', TemplateView.as_view(template_name='pages/about.html'), name="about"),
 
     # Django Admin, use {% url 'admin:index' %}
@@ -20,6 +20,7 @@ urlpatterns = [
     url(r'^accounts/', include('allauth.urls')),
 
     # Your stuff: custom urls includes go here
+    url(r'^sudoku/', include("sudoku_solver.api", namespace="sudoku_solver")),
 
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
